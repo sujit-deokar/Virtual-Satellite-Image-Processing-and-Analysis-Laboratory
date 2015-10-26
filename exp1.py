@@ -32,3 +32,22 @@ for i,col in enumerate(color):
     plt.plot(histr,color = col)
     plt.xlim([0,256])
 plt.show()
+
+''' Other way for separating the images'''
+
+import numpy as np
+import cv2
+# Load an color image in grayscale
+img = cv2.imread('test.png')
+img1 = img[:,:,0]  #Red component
+img2 = img[:,:,1]  #Green component
+img3 = img[:,:,2]  #Blue component
+cv2.imshow('image',img)
+cv2.waitKey(0)
+cv2.imshow('image',img0)
+cv2.waitKey(0)
+cv2.imshow('image',img1)
+cv2.waitKey(0)
+cv2.imshow('image',img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
