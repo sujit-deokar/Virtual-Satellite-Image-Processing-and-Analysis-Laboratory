@@ -32,3 +32,22 @@ plt.imshow(img2)
 plt.gray()
 plt.title('enhanced image')
 plt.show()
+
+'''
+Alternative code for Histogram equalization based image enhancement.
+Histograms Equalization in OpenCV OpenCV has a function to do this, cv2.equalizeHist(). 
+Its input is just grayscale image and output is our histogram equalized image.
+Below is a simple code snippet showing its usage for same image we used :
+'''
+import numpy as np
+import cv2
+from scipy import misc
+
+img = misc.lena()
+img = img.astype(np.uint8)
+equ = cv2.equalizeHist(img)
+res = np.hstack((img,equ))
+cv2.imshow('img',img)
+cv2.imshow('res',res)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
