@@ -5,6 +5,8 @@
 -============================
 -created: 17/08/2015
 -auhor: sujitdeokar30@gmail.com
+This code is taken and refurnish for our requirement from Open CV documents.
+Please refer the http://docs.opencv.org/ site for additional details.
 -"""
 # Enhancement using Histogram Equalization:
 import numpy as np
