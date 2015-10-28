@@ -32,3 +32,26 @@ plt.imshow(deriv)
 plt.gray()
 plt.title('spline edge filter iamge')
 plt.show()
+''' 
+2D convolution is used for Image filtering in OpenCV.
+As for one-dimensional signals, images also can be filtered with various low-pass filters (LPF), high-pass filters (HPF),
+etc. A LPF helps in removing noise, or blurring the image. A HPF filters helps in finding edges in an image.
+OpenCV provides a function, cv2.filter2D(), to convolve a kernel with an image. As an example, we will try 
+anaveraging filter on an image. A 5x5 averaging filter kernel can be defined as follows:
+
+       | 1 1 1 1 1 |
+    1  | 1 1 1 1 1 |
+K = -  | 1 1 1 1 1 |
+    25 | 1 1 1 1 1 |
+       | 1 1 1 1 1 |
+'''
+import cv2
+img = cv2.imread('opencv_logo.png')
+kernel = np.ones((5,5),np.float32)/25
+dst = cv2.filter2D(img,-1,kernel)
+plt.figure()
+plt.subplot(121),plt.imshow(img),plt.title('Original')
+plt.xticks([]), plt.yticks([])
+plt.subplot(122),plt.imshow(dst),plt.title('Averaging')
+plt.xticks([]), plt.yticks([])
+plt.show()
