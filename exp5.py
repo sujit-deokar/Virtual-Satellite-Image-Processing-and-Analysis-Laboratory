@@ -37,6 +37,9 @@ plt.show()
 Please refer following site for basic understanding of Roberts filtering:
 https://en.wikipedia.org/wiki/Roberts_cross  
 '''
+from scipy import misc, signal
+import numpy as np
+
 robertx = np.array([[1,0], [0,-1]], dtype=np.float32)
 roberty = np.array([[0,1], [-1,0]], dtype=np.float32)
 im3 = signal.convolve2d(x1,sobelx,mode='same',boundary='symm')
