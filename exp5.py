@@ -58,3 +58,27 @@ plt.imshow(im5)
 plt.title('Roberts image')
 plt.gray()
 plt.show()
+
+''' 
+Please refer following site for basic understanding of Perwitts filtering:
+https://en.wikipedia.org/wiki/Prewitt_operator  
+'''
+
+Prewittx = np.array([[-1,0,1], [-1,0,1], [-1,0,1]], dtype=np.float32)
+Prewitty = np.array([[-1,-1,-1], [0,0,0], [1,1,1]], dtype=np.float32)
+im6 = signal.convolve2d(x1,sobelx,mode='same',boundary='symm')
+im7 = signal.convolve2d(x1,sobely,mode='same',boundary='symm')
+im8 = sqrt(im6**2 + im7**2)
+plt.figure()
+plt.subplot(121)
+plt.imshow(im6)
+plt.title('Prewitt operator in X direction image')
+plt.subplot(122)
+plt.imshow(im7)
+plt.title('Prewitt operator in Y direction image')
+plt.gray()
+plt.figure()
+plt.imshow(im8)
+plt.title('Prewitts image')
+plt.gray()
+plt.show()
