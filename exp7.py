@@ -16,3 +16,8 @@ Binary closing operation using scipy.ndimage library code is referenced from sci
 a = np.zeros((5,5), dtype=np.int)
 a[1:-1, 1:-1] = 1; a[2,2] = 0
 print a
+# Closing removes small holes
+ndimage.binary_closing(a).astype(np.int)
+# Closing is the erosion of the dilation of the input
+a1 = ndimage.binary_dilation(a).astype(np.int)
+print a1
